@@ -1,9 +1,8 @@
-package utils;
+package restUtils;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import java.util.Map;
-import java.util.Objects;
 
 public class RestUtils {
 
