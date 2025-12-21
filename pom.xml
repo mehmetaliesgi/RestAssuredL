@@ -18,7 +18,7 @@
         <jackson.version>3.0.3</jackson.version>
         <gson.version>2.13.2</gson.version>
         <extentreport.version>5.1.2</extentreport.version>
-        <faker.version>1.0.2</faker.version>
+        <faker.version>2.5.3</faker.version>
         <lombok.version>1.18.42</lombok.version>
         <common.version>3.20.0</common.version>
     </properties>
@@ -77,10 +77,10 @@
             <version>${extentreport.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <!-- https://mvnrepository.com/artifact/net.datafaker/datafaker -->
         <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
             <version>${faker.version}</version>
         </dependency>
 

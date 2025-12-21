@@ -16,11 +16,7 @@ public class BookingTests extends BookingAPIs{
     @Test
     public void createBookingTest(){
 
-        Map<String, String> bookingDates = new HashMap<>();
-        bookingDates.put("checkin", "2118-01-01");
-        bookingDates.put("checkout", "2119-01-01");
-
-        Map<String, Object> payload = Payloads.getCreateBookingPayloadFromMap("Jim", "Brown", 111, true, bookingDates, "Breakfast");
+        Map<String, Object> payload = Payloads.getCreateBookingPayloadFromMap();
 
         Response response = createBooking(payload);
 
