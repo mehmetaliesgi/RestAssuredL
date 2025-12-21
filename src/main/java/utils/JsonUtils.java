@@ -10,7 +10,7 @@ public class JsonUtils {
 
     private static ObjectMapper mapper = new ObjectMapper();
 
-    public static Map<String, String> getJsonDataAsMap(String jsonFileName){
+    public static Map<String, Object> getJsonDataAsMap(String jsonFileName){
         String completeJsonFilePath = System.getProperty("user.dir")+"/src/test/resources/"+jsonFileName;
 
         return mapper.readValue(new File(completeJsonFilePath), new TypeReference<>() {});

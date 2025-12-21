@@ -12,6 +12,7 @@
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <restassured.version>6.0.0</restassured.version>
         <testng.version>7.11.0</testng.version>
         <jackson.version>3.0.3</jackson.version>
@@ -32,7 +33,8 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <forkCount>0 </forkCount>
+                    <forkCount>1</forkCount>
+                    <argLine>-Dfile.encoding=UTF-8 -Duser.language=en -Duser.country=US</argLine>
                 </configuration>
             </plugin>
         </plugins>
@@ -52,7 +54,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
