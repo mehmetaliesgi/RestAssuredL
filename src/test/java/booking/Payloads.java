@@ -1,11 +1,11 @@
 package booking;
 
 import net.datafaker.Faker;
-import org.apache.commons.lang3.RandomStringUtils;
+import utils.RandomDataGenerator;
+import utils.RandomDataTypeNames;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class Payloads {
 
@@ -38,21 +38,23 @@ public class Payloads {
 
         return bookingData;
     }
+
+
     public static Map<String, Object> getCreateBookingPayloadFromMap() {
         Faker faker = new Faker();
 
         Map<String, String> bookingDates = new HashMap<>();
-        bookingDates.put("checkin", faker.timeAndDate().future(1, TimeUnit.DAYS, "yyyy-MM-dd"));
-        bookingDates.put("checkout", faker.timeAndDate().future(7, TimeUnit.DAYS, "yyyy-MM-dd"));
+        bookingDates.put("checkin", RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.CHECK_IN));
+        bookingDates.put("checkout", RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.CHECK_OUT));
 
         Map<String, Object> bookingData = new HashMap<>();
 
-        bookingData.put("firstname", faker.name().firstName());
-        bookingData.put("lastname", faker.name().lastName());
-        bookingData.put("totalprice", faker.number().numberBetween(100,1000));
-        bookingData.put("depositpaid", faker.bool().bool());
+        bookingData.put("firstname", RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.FIRST_NAME));
+        bookingData.put("lastname", RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.LAST_NAME));
+        bookingData.put("totalprice", RandomDataGenerator.getRandomIntDataFor(100, 1000));
+        bookingData.put("depositpaid", RandomDataGenerator.getRandomBooleanDataFor());
         bookingData.put("bookingdates", bookingDates);
-        bookingData.put("additionalneeds", faker.food().dish());
+        bookingData.put("additionalneeds", RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.ADDITIONAL_NEEDS));
 
         return bookingData;
     }
