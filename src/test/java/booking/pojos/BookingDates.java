@@ -1,12 +1,16 @@
 package booking.pojos;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import utils.RandomDataGenerator;
 import utils.RandomDataTypeNames;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookingDates {
 
     private String checkin;

@@ -1,12 +1,14 @@
 package booking.pojos;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import utils.RandomDataGenerator;
 import utils.RandomDataTypeNames;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class Book {
 
     private String firstname;
