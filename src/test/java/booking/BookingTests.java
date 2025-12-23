@@ -1,22 +1,18 @@
 package booking;
 
+import booking.pojos.Book;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import reporting.Setup;
-import restUtils.RestUtils;
-import utils.JsonUtils;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class BookingTests extends BookingAPIs{
 
     @Test
     public void createBookingTest(){
 
-        Map<String, Object> payload = Payloads.getCreateBookingPayloadFromMap();
+        //Book payload = Payloads.getCreateBookingPayloadFromPojo();
+
+        Book payload = Book.createRandomBook();
 
         Response response = createBooking(payload);
 

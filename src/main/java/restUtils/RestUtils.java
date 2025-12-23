@@ -58,4 +58,15 @@ public class RestUtils {
 
         return response;
     }
+
+    public static Response performPostRequest(String endpoint, Object requestPayloadAsPojo, Map<String, String> headers) {
+        RequestSpecification requestSpecification = getRequestSpecification(endpoint, requestPayloadAsPojo, headers);
+
+        Response response = requestSpecification.post();
+
+        printRequestLogInReporter(requestSpecification);
+        printResponseLogInReporter(response);
+
+        return response;
+    }
 }

@@ -1,6 +1,7 @@
 package booking;
 
-import net.datafaker.Faker;
+import booking.pojos.Book;
+import booking.pojos.BookingDates;
 import utils.RandomDataGenerator;
 import utils.RandomDataTypeNames;
 
@@ -41,7 +42,6 @@ public class Payloads {
 
 
     public static Map<String, Object> getCreateBookingPayloadFromMap() {
-        Faker faker = new Faker();
 
         Map<String, String> bookingDates = new HashMap<>();
         bookingDates.put("checkin", RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.CHECK_IN));
@@ -59,4 +59,18 @@ public class Payloads {
         return bookingData;
     }
 
+
+    public static Book getCreateBookingPayloadFromPojo() {
+
+        BookingDates bookingDates = BookingDates.createRandomDates();
+
+        return Book.builder()
+                .firstname(RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.FIRST_NAME))
+                .lastname(RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.LAST_NAME))
+                .totalprice(RandomDataGenerator.getRandomIntDataFor(100, 1000))
+                .depositpaid(RandomDataGenerator.getRandomBooleanDataFor())
+                .bookingdates(bookingDates)
+                .additionalneeds(RandomDataGenerator.getRandomDataFor(RandomDataTypeNames.ADDITIONAL_NEEDS))
+                .build();
+    }
 }
